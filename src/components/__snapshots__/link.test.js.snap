@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Link /> should render correctly 1`] = `
+<Link
+  href="https://www.formidable.com"
+  target="_blank"
+>
+  <Styled(a)
+    className={undefined}
+    href="https://www.formidable.com"
+    styles={
+      Array [
+        Object {
+          "color": "#345",
+        },
+        Object {},
+        Object {},
+        undefined,
+      ]
+    }
+    target="_blank"
+  >
+    <a
+      className="css-qjaoxy"
+      href="https://www.formidable.com"
+      target="_blank"
+    >
+      Formidable Labs
+    </a>
+  </Styled(a)>
+</Link>
+`;

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TableItem /> should render correctly 1`] = `
+<TableItem>
+  <Styled(td)
+    className={undefined}
+    style={
+      Array [
+        Object {
+          "color": "#444",
+        },
+        Object {},
+        Object {},
+        undefined,
+      ]
+    }
+  >
+    <td
+      className="css-0"
+      style={
+        Array [
+          Object {
+            "color": "#444",
+          },
+          Object {},
+          Object {},
+          undefined,
+        ]
+      }
+    >
+      Table Item Content
+    </td>
+  </Styled(td)>
+</TableItem>
+`;
