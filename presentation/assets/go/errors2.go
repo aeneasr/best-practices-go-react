@@ -4,9 +4,9 @@ func foo() error {
     return errors.New("foo")
 }
 
-func withStack() {
+func withStack() error {
     if err := foo(); err != nil {
-        log.Fatalf("An error occurred %s", errors.WithStack(err))
+        return errors.WithStack(err)
     }
 }
 

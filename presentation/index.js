@@ -37,12 +37,15 @@ export default class Presentation extends Component {
         <Slide transition={['zoom']} bgColor="primary" notes={
           (
             <div>
-              <p>
-                Hi, my name is Aeneas Rekkas
-              </p>
-              <p>
-
-              </p>
+              <ul>
+                <li>Hi, my name is Aeneas Rekkas</li>
+                <li>I've been developing software for over 15 years now and work primarily in go and react since about 4
+                  or 5 years
+                </li>
+                <li>My company maintains popular open source projects with about 14.000 github stars - everything is
+                  react and go
+                </li>
+              </ul>
             </div>
           )}>
           <Heading size={1} fit caps textColor="white">
@@ -59,6 +62,9 @@ export default class Presentation extends Component {
         <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
           (
             <div>
+              Let's start with Go. I think you can learn more from me in Go than in React, because React is heavily
+              dependent
+              on use case, environment, and toolchain
             </div>
           )}>>
           <Heading size={1} textColor="tertiary">
@@ -66,9 +72,25 @@ export default class Presentation extends Component {
           </Heading>
         </Slide>
 
+        <CodeSlide transition={['slide']}
+          ranges={[{ loc: [0, 8] }]}
+          lang="go"
+          code={require('raw-loader!./assets/go/interfaces0.go')} notes={
+          (
+            <ul>
+              <li>
+                Let's start with an easy one...Here we have a function that, apparently, executes a job by printing it
+              </li>
+              <li>We don't really care which printer which is why we use the print.Printer interface to abstract that away</li>
+              <li>You will see this quite often, especially from developres that worked primarily with OOP languages, especially in Java</li>
+            </ul>
+          )}
+        />
+
         <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
           (
             <div>
+              In Go however, we try to define interfaces at the consumer, not in the provider.
             </div>
           )}>>
           <Heading size={1} textColor="tertiary">
@@ -79,36 +101,56 @@ export default class Presentation extends Component {
         <CodeSlide transition={['slide']}
           ranges={[{ loc: [0, 10] }]}
           lang="go"
-          code={require('raw-loader!./assets/go/interfaces1.go')}
+          code={require('raw-loader!./assets/go/interfaces1.go')} notes={
+          (
+            <ul>
+              <li>
+               Let's look at that code again, but this time the printer interface is defined locally
+              </li>
+              <li>Why is this possible, and why would this be superior to the previous approach? (question audience)</li>
+              <li>no dependency whatsoever</li>
+              <li>only declare what we really need</li>
+              <li>allows us to easily implement an alternative, because we only need one function</li>
+              <li>duck typing</li>
+            </ul>
+          )}
         />
 
         <CodeSlide transition={['slide']}
           ranges={[{ loc: [0, 14] }]}
           lang="go"
           code={require('raw-loader!./assets/go/interfaces2.go')}
-
-
+          notes={
+            (
+              <ul>
+                <li>
+                  In our main program, which executes the job and initializes the printer - we orchestrate everything
+                  without even noticing that print has no direct dependency on go-print (other than maybe downloading less code)
+                </li>
+                <li>
+                  of course, there are still valid cases where you'd want to define an interface in your library (in this example go-print).
+                </li>
+                <li>
+                  This can be for convenience or for internal use (if you have multiple implementations but only one test suite for the interface, for example)
+                </li>
+              </ul>
+            )}
         />
 
         <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
           (
-            <div>
-            </div>
-          )}>>
+            <ul>
+              <li>Every gopher loves to talk about error handling</li>
+              <li>New developers to go usually don't like it that much but get used to it over time</li>
+              <li>IU hated it in the beginning and looked for X ways to make error handling with less boilerplate code</li>
+              <li>At some point I accepted it, and now I love it</li>
+              <li>But you're already using Go, so you probably already had the same journey as I - let's look at some things you can do to seriously enhance error handling</li>
+            </ul>
+          )}>
           <Heading size={1} textColor="tertiary">
             Errors
           </Heading>
         </Slide>
-
-        <CodeSlide transition={['slide']}
-          lang="java"
-          code={require('raw-loader!./assets/go/errors.java')}
-          ranges={[
-            { loc: start(4) },
-            { loc: next(4, 3) },
-            { loc: next(11) },
-          ]}
-        />
 
         <CodeSlide transition={['slide']}
           lang="go"
@@ -118,16 +160,33 @@ export default class Presentation extends Component {
             { loc: next(1) },
             { loc: next(6) },
             { loc: next(4) },
-          ]}
+          ]} notes={
+          (
+            <ul>
+              <li>So this one is obvious and basically just learning how to avoid huge if nesting</li>
+              <li>Also, we overwrite the error type all the time. this isn't problemativ here, but it can become problematic under certain circumstances</li>
+              <li>So here we check for nil equality and have to nest deeper with every call</li>
+            </ul>
+          )}
         />
         <CodeSlide transition={['slide']}
           ranges={[
-            { loc: start(5) },
-            { loc: next(14, 1) },
+            { loc: start(1) },
+            { loc: next(3) },
+            { loc: next(3, 1) },
+            { loc: next(13, 2) },
           ]}
           lang="go"
           code={require('raw-loader!./assets/go/errors.go')}
-
+          notes={
+            (
+              <ul>
+                <li>Obviously, we don't want to do that</li>
+                <li>instead we check for not nil - which typically indicates an error that will bubble up (or be handled properly)</li>
+                <li>also, we like to define the error within the if itself - it's scoped and well contained and won't be overwritten accidentally</li>
+                <li>in this example, err and value are defined outside the scope of the ifs, but we still </li>
+              </ul>
+            )}
 
         />
         <CodeSlide transition={['slide']}
@@ -202,7 +261,7 @@ export default class Presentation extends Component {
             </div>
           )}>>
           <Heading size={1} textColor="tertiary">
-            I hate interface mocking
+            I avoid mocking
           </Heading>
         </Slide>
 
@@ -358,9 +417,9 @@ export default class Presentation extends Component {
           </div>}
           ranges={[
             { loc: start(1), title: 'Avoid webpack' },
-            { loc: next(1), note: 'Avoid webpack!' },
-            { loc: next(1), note: 'Avoid webpack!!' },
-            { loc: next(1), note: 'Avoid webpack!!!' },
+            { loc: next(1), },
+            { loc: next(1), },
+            { loc: next(1), note: 'Done!' },
           ]}
 
           lang="bash"

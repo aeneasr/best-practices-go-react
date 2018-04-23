@@ -1,10 +1,8 @@
 package job
 
-type printer interface {
-    PrintPDF (filepath string) error
-}
+import "github.com/go-print/print"
 
-func DoJob(p printer, job string) error {
+func DoJob(p print.Printer, job string) error {
     // filepath = ...
     return p.PrintPDF(filepath)
 }
