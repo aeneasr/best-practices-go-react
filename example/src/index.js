@@ -324,7 +324,6 @@ export default class Presentation extends Component {
         </Slide>
 
 
-
         <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
           (
             <div>
@@ -333,21 +332,165 @@ export default class Presentation extends Component {
           <Heading size={1} textColor="tertiary">
             ReactJS
           </Heading>
-          <List textColor="tertiary">
-            <Appear><ListItem>Flow Typed</ListItem></Appear>
-            <Appear><ListItem>Prettier</ListItem></Appear>
-            <Appear><ListItem>Create React App</ListItem></Appear>
-            <Appear><ListItem>Avoid Webpack Complexity</ListItem></Appear>
-            <Appear><ListItem>Use functional components</ListItem></Appear>
-            <Appear><ListItem>Redux is good but also complex</ListItem></Appear>
-            <Appear><ListItem>Enzyme for component testing</ListItem></Appear>
-          </List>
         </Slide>
 
+        <Slide
+          transition={['slide']}
+          bgColor="secondary"
+          notes={<div>
+            Talk about Flow type and typescript
+            <p>
+              <a href="https://flow.org/try/">https://flow.org/try/</a>
+            </p>
+            <p>
+              <a href="https://www.typescriptlang.org/play/index.html">https://www.typescriptlang.org/play/index.html</a>
+            </p>
+          </div>}
+        >
+          <Heading fit size={1} textColor="tertiary"
+          >
+            Use static type checking
+          </Heading>
+          <Appear>
+            <CodePane
+              style={{ marginTop: '40px' }}
+              lang="js"
+              source={require('raw-loader!../assets/js/flowtype.jst')}
+              margin="20px auto"
+              overflow="overflow"
+            />
+          </Appear>
+        </Slide>
 
+        <Slide
+          transition={['slide']}
+          bgColor="secondary" notes={
+          (
+            <div>
+              <a href="https://prettier.io/playground/">https://prettier.io/playground/</a>
+            </div>
+          )}
+        >
+          <Heading fit size={1}>github.com/prettier/prettier</Heading>
+          <Appear>
+            <CodePane
+              style={{ marginTop: '40px' }}
+              lang="js"
+              source={require('raw-loader!../assets/js/prettier1.jst')}
+              margin="20px auto"
+              overflow="overflow"
+            />
+          </Appear>
+          <Appear>
+            <CodePane
+              lang="js"
+              source={`prettier --single-quote --trailing-comma es5 --write "**/*.js"`}
+              margin="20px auto"
+              overflow="overflow"
+            />
+          </Appear>
+          <Appear>
+            <CodePane
+              lang="js"
+              source={require('raw-loader!../assets/js/prettier2.jst')}
+              margin="20px auto"
+              overflow="overflow"
+            />
+          </Appear>
+          <Appear>
+            <CodePane
+              lang="js"
+              source={require('raw-loader!../assets/js/prettier2.jst')}
+              margin="20px auto"
+              overflow="overflow"
+            />
+          </Appear>
+        </Slide>
 
+        <Slide
+          transition={['slide']}
+          bgColor="secondary"
+          notes={<div>
+            Talk about avoiding webpack complexity
+          </div>}
+        >
+          <Heading fit size={1} textColor="tertiary"
+          >
+            github.com/facebook/create-react-app
+          </Heading>
+          <Appear>
+            <CodePane
+              style={{ marginTop: '40px' }}
+              lang="js"
+              source={`npm i -g create-react-app && create-react-app my-app
+cd my-app
+npm start`}
+              margin="20px auto"
+              overflow="overflow"
+            />
+          </Appear>
+        </Slide>
 
+        <Slide
+          transition={['slide']}
+          bgColor="secondary"
+          notes={<div>
+            Functional components
+            Highlight updates with react dev tools
 
+          </div>}
+        >
+          <Heading fit size={1} textColor="tertiary"
+          >
+            Optimisation
+          </Heading>
+          <Appear>
+            <CodePane
+              style={{ marginTop: '40px' }}
+              lang="js"
+              source={`npm i -g create-react-app && create-react-app my-app
+cd my-app
+npm start`}
+              margin="20px auto"
+              overflow="overflow"
+            />
+          </Appear>
+        </Slide>
+
+        <Slide
+          transition={['slide']}
+          bgColor="secondary"
+          notes={<div>
+          </div>}
+        >
+          <Heading fit size={1} textColor="tertiary"
+          >
+            github.com/airbnb/enzyme
+          </Heading>
+          <Appear>
+            <CodePane
+              style={{ marginTop: '40px' }}
+              lang="js"
+              source={require('raw-loader!../assets/js/enzyme.jst')}
+              margin="20px auto"
+              overflow="overflow"
+            />
+          </Appear>
+        </Slide>
+
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+          (
+            <div>
+            </div>
+          )}>>
+          <Heading size={1} textColor="tertiary">
+            There's more ...
+          </Heading>
+          <List textColor="tertiary">
+            <Appear><ListItem>State Management</ListItem></Appear>
+            <Appear><ListItem>Buffers</ListItem></Appear>
+          </List>
+        </Slide>
 
 
 
