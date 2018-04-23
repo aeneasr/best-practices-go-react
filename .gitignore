@@ -1,7 +1,4 @@
-node_modules
-dist
-lib
-es
-*.log
 .DS_Store
-.vscode
+node_modules
+npm-debug.log
+dist

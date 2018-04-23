@@ -1,0 +1,12 @@
+.playground .playgroundCode,
+.playground .playgroundPreview {
+  font-size: 16px;
+}
+
+.playground .playgroundPreview > div {
+  text-align: left;
+}
+
+.playground .playgroundCode .playgroundStage .CodeMirror {
+  padding: 0.4rem;
+}

@@ -1,15 +1,26 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": [
+    [ "es2015", { "loose": true, "modules" : false } ],
+    "stage-0",
+    "react"
+  ],
   "plugins": [
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-class-properties",
-    "babel-plugin-emotion"
+    "transform-decorators-legacy",
   ],
   "env": {
-    "esm": {
-      "presets": [
-        ["@babel/preset-env", { "modules": false }],
-        "@babel/preset-react"
+    "production": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "transform-react-remove-prop-types",
+        "transform-react-constant-elements",
+        "transform-react-inline-elements",
+        "transform-runtime",
+        "transform-decorators-legacy",
+      ],
+    },
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
       ]
     }
   }

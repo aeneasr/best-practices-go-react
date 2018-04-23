@@ -1,8 +1,0 @@
-$ go run stacktrace.go
-Something went wrong
-main.main
-      C:/workspace/js/best-practices-go-react/example/assets/go/stacktrace.go:9
-runtime.main
-      C:/Go/src/runtime/proc.go:198
-runtime.goexit
-      C:/Go/src/runtime/asm_amd64.s:2361
