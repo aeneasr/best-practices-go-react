@@ -10,21 +10,13 @@ func withStack() error {
     }
 }
 
-func multiAssignmentWithStack(check bool) (err error, value someVal) {
-    if bool {
-        value, err = foo()
-    } else {
-        value, err = bar()
+func wrapError() (err error) {
+    if err := foo(); err != nil {
+        return errors.Wrap(err, "Could not execute foo")
     }
 
-    if err != nil {
-        return nil, errors.WithStack(err)
-    }
-
-    return value, err
-    // ...
+    return nil
 }
-
 
 
 

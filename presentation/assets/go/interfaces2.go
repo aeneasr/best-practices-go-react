@@ -4,7 +4,7 @@ import "github.com/go-print/hp309cg"
 import "github.com/example/example/print"
 
 func main() {
-    p := hp309cg.New()
+    printer := hp309cg.New()
 
     // ...
 

@@ -15,6 +15,22 @@ func MockingMakesSenseSometimes() string {
 }
 
 
+var foo = letsRewriteThis(callSomething)
+
+func letsRewriteThis(err error) string {
+    switch errors.Cause(err).(type) {
+        case ErrorSomething:
+            return "Something error"
+        case ErrorFoo:
+            return "Foo error :("
+        case ErrorBar:
+            return "Bar error :("
+        default:
+            return ""
+    }
+}
+
+
 
 
 
