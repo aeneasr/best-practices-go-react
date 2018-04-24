@@ -1,8 +1,8 @@
-import "github.com/pkg/errors"
+package mocking
 
 func MockingMakesSenseSometimes() string {
     err := callSomehing()
-    switch errors.Cause(err).(type) {
+    switch err.(type) {
         case ErrorSomething:
             return "Something error"
         case ErrorFoo:
@@ -18,7 +18,7 @@ func MockingMakesSenseSometimes() string {
 var foo = letsRewriteThis(callSomething)
 
 func letsRewriteThis(err error) string {
-    switch errors.Cause(err).(type) {
+    switch err.(type) {
         case ErrorSomething:
             return "Something error"
         case ErrorFoo:
