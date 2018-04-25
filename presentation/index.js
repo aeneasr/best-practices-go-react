@@ -34,7 +34,7 @@ export default class Presentation extends Component {
   render() {
     return (
       <Deck transition={["zoom", "slide"]} theme={theme} transitionDuration={500}>
-        <Slide transition={['zoom']} bgColor="primary" notes={
+        <Slide transition={['zoom']} bgColor="primary" notesOld={
           (
             <div>
               <ul>
@@ -63,7 +63,7 @@ export default class Presentation extends Component {
           </Heading>
         </Slide>
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <div>
               Let's start with Go. I think you can learn more from me in Go than in React, because React is heavily
@@ -79,7 +79,7 @@ export default class Presentation extends Component {
         <CodeSlide transition={['slide']}
                    ranges={[{ loc: [0, 8] }]}
                    lang="go"
-                   code={require('raw-loader!./assets/go/interfaces0.go')} notes={
+                   code={require('raw-loader!./assets/go/interfaces0.go')} notesOld={
           (
             <ul>
               <li>
@@ -95,7 +95,7 @@ export default class Presentation extends Component {
           )}
         />
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <div>
               In Go however, we try to define interfaces at the consumer, not in the provider.
@@ -109,7 +109,7 @@ export default class Presentation extends Component {
         <CodeSlide transition={['slide']}
                    ranges={[{ loc: [0, 10] }]}
                    lang="go"
-                   code={require('raw-loader!./assets/go/interfaces1.go')} notes={
+                   code={require('raw-loader!./assets/go/interfaces1.go')} notesOld={
           (
             <ul>
               <li>
@@ -129,7 +129,7 @@ export default class Presentation extends Component {
                    ranges={[{ loc: [0, 14] }]}
                    lang="go"
                    code={require('raw-loader!./assets/go/interfaces2.go')}
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>
@@ -153,7 +153,7 @@ export default class Presentation extends Component {
                      )}
         />
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <ul>
               <li>Every gopher loves to talk about error handling</li>
@@ -180,7 +180,7 @@ export default class Presentation extends Component {
                      { loc: next(3, 2) },
                      { loc: next(2) },
                      { loc: next(1) },
-                   ]} notes={
+                   ]} notesOld={
           (
             <ul>
               <li>So this one is obvious and basically just learning how to avoid huge if nesting</li>
@@ -206,7 +206,7 @@ export default class Presentation extends Component {
                    ]}
                    lang="go"
                    code={require('raw-loader!./assets/go/errors.go')}
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>Obviously, we don't want to do that</li>
@@ -256,7 +256,7 @@ export default class Presentation extends Component {
                    ]}
                    lang="go"
                    code={require('raw-loader!./assets/go/errors2.go')}
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>Go's error type is very primitive by design</li>
@@ -282,7 +282,7 @@ export default class Presentation extends Component {
                    ]}
                    lang="go"
                    code={require('raw-loader!./assets/go/errors_http.go')}
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>I think it's very useful - in the context of http apis - to have errors that already
@@ -311,7 +311,7 @@ export default class Presentation extends Component {
                    ]}
                    lang="go"
                    code={require('raw-loader!./assets/go/errors_ta.go')}
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>And then you simply do a type assertion</li>
@@ -328,7 +328,7 @@ export default class Presentation extends Component {
                    ]}
                    lang="go"
                    code={require('raw-loader!./assets/go/stacktrace.go')}
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>Phew - ok - that was a lot of talking about errors</li>
@@ -348,7 +348,7 @@ export default class Presentation extends Component {
                    lang="bash"
                    code={require('raw-loader!./assets/go/stacktrace.txt')}
 
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>Here you see, the first output is just the error message</li>
@@ -371,7 +371,7 @@ export default class Presentation extends Component {
                    lang="go"
                    code={require('raw-loader!./assets/go/testcases.go')}
 
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>Ok, let's touch another important topic - tests</li>
@@ -396,7 +396,7 @@ export default class Presentation extends Component {
 
         />
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <div>
               Personally, i hate mocking language level API calls (e.g. interfaces) - there's a couple of reasons
@@ -426,7 +426,7 @@ export default class Presentation extends Component {
                    lang="go"
                    code={require('raw-loader!./assets/go/okmock.go')}
 
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>We have a function which returns a variety of errors</li>
@@ -439,7 +439,7 @@ export default class Presentation extends Component {
                      )}
         />
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <div>
               <ul>
@@ -491,7 +491,7 @@ export default class Presentation extends Component {
                    ]}
                    lang="go"
                    code={require('raw-loader!./assets/go/mock_http.go')}
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>The Go authors see that similarly which is why they included helpers for integration tests but not mocking in the stdlib</li>
@@ -528,7 +528,7 @@ export default class Presentation extends Component {
                    ]}
                    lang="go"
                    code={require('raw-loader!./assets/go/dockertest.go')}
-                   notes={
+                   notesOld={
                      (
                        <ul>
                          <li>When we come to database adapters it always gets tricky</li>
@@ -552,7 +552,7 @@ export default class Presentation extends Component {
                      )}
         />
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <ul>
               <li>So this is ... a bit annoying</li>
@@ -609,7 +609,7 @@ export default class Presentation extends Component {
         </Slide>
 
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <ul>
               <li>there is of course more to best practices in go, but I don't want to blow this out of proportion
@@ -630,7 +630,7 @@ export default class Presentation extends Component {
         </Slide>
 
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <div>
             </div>
@@ -640,7 +640,7 @@ export default class Presentation extends Component {
           </Heading>
         </Slide>
 
-        <CodeSlide transition={['slide']} notes={
+        <CodeSlide transition={['slide']} notesOld={
           (
             <ul>
               <li>Static type checking saved my ass so often, that it definitely outweighs the additional work involved
@@ -670,7 +670,7 @@ export default class Presentation extends Component {
         />
 
         <CodeSlide transition={['slide']}
-                   notes={<div>
+                   notesOld={<div>
                      <ul>
                        <li>I don't like linting that much</li>
                        <li>The linting process should be automated - similar to go fmt - and should simply fix issues
@@ -695,7 +695,7 @@ export default class Presentation extends Component {
         />
 
         <CodeSlide transition={['slide']}
-                   notes={<div>
+                   notesOld={<div>
                      <ul>
                        <li>Avoiding webpack and in general JS toolchains is quite important IMHO</li>
                        <li>React has good stability and most libraries around it as well (maybe to the exception of
@@ -726,7 +726,7 @@ $ npm start`}
         />
 
         <Slide maxWidth="90%"
-               notes={<div>
+               notesOld={<div>
                  <ul>
                    <li>Ok, we're almost done, this last one is a small exercise around best practices for react
                      components
@@ -746,7 +746,7 @@ $ npm start`}
 
 
         <Slide maxWidth="90%"
-               notes={<div>
+               notesOld={<div>
                  <ul>
                    <li>A good idea is to bubble up the state handling and write primitive components that take, for
                      example, callbacks to update state
@@ -769,7 +769,7 @@ $ npm start`}
         </Slide>
 
         <CodeSlide transition={['slide']}
-                   notes={<div>
+                   notesOld={<div>
                      <ul>
                        <li>The last topic I want to briefly touch is testing components</li>
                        <li>This can be very hard because I think that testing view logic is subject to so much change
@@ -802,7 +802,7 @@ $ npm start`}
                    code={require('raw-loader!./assets/js/enzyme.jst')}
         />
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <ul>
               <li>Here too, we have a ton of topics that I haven't touched. Maybe we can address some of them in the
@@ -826,7 +826,7 @@ $ npm start`}
           </List>
         </Slide>
 
-        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notes={
+        <Slide transition={['slide']} bgDarken={0.75} bgColor="secondary" notesOld={
           (
             <div>
             </div>
