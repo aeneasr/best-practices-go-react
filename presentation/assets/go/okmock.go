@@ -1,34 +1,25 @@
 package mocking
 
 func MockingMakesSenseSometimes() string {
-    err := callSomehing()
-    switch err.(type) {
-        case ErrorSomething:
-            return "Something error"
-        case ErrorFoo:
-            return "Foo error :("
-        case ErrorBar:
-            return "Bar error :("
-        default:
-            return ""
+    if err := foo(); err != nil {
+        return err
     }
+
+    if err := bar(); err != nil {
+        return err
+    }
+
+    if err := baz(); err != nil {
+        return err
+    }
+
+    if err := zab(); err != nil {
+        return err
+    }
+
+    return nil
 }
 
-
-var foo = letsRewriteThis(callSomething)
-
-func letsRewriteThis(err error) string {
-    switch err.(type) {
-        case ErrorSomething:
-            return "Something error"
-        case ErrorFoo:
-            return "Foo error :("
-        case ErrorBar:
-            return "Bar error :("
-        default:
-            return ""
-    }
-}
 
 
 

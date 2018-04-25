@@ -1,4 +1,4 @@
-$ go run stacktrace.go
+^$ go run stacktrace.go
 Something went wrong
 Something went wrong
 main.main

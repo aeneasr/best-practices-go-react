@@ -12,7 +12,7 @@ func multiAssignmentBad(foo bool) (someType, error) {
     if foo {
         value, err := foo()
         if err != nil {
-            log.Fatalf("An error occurred %s", err)
+            return nil, err
         }
 
         return value, err
@@ -20,7 +20,7 @@ func multiAssignmentBad(foo bool) (someType, error) {
 
     value, err := bar()
     if err != nil {
-        log.Fatalf("An error occurred %s", err)
+        return nil, err
     }
 
     return value, err
@@ -28,13 +28,13 @@ func multiAssignmentBad(foo bool) (someType, error) {
 
 func multiAssignmentGood(foo bool) (value someType, err error) {
     if foo {
-        if value, err = foo(); err != nil {
-            log.Fatalf("An error occurred %s", err)
-        }
+        value, err = foo()
     } else {
-        if value, err = bar(); err != nil {
-            log.Fatalf("An error occurred %s", err)
-        }
+        value, err = bar()
+    }
+
+    if err != nil {
+        return nil, err
     }
 
     return
