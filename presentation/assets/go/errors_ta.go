@@ -1,5 +1,9 @@
+type statusCodeCarrier interface {
+    StatusCode() int
+}
+
 func handleError(err error) {
-	if e, ok := err.(StatusCodeCarrier); ok {
+	if e, ok := err.(statusCodeCarrier); ok {
 	    log.Printf(
 	        "Got %s error with status code %d",
 	        err,

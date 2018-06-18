@@ -1,0 +1,26 @@
+my-lerna-repo/
+  package.json
+  packages/
+    package-1/
+      package.json
+    package-2/
+      package.json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

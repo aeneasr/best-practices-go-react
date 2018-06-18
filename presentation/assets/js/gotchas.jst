@@ -1,0 +1,4 @@
+// redux before
+const MyConnectedComponent = connect(mapStateToProps)(MyComponent)
+// redux after
+const MyConnectedComponent = withRouter(connect(mapStateToProps)(MyComponent))

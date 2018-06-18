@@ -3,7 +3,8 @@ func chainErrors() {
         log.Fatalf("An error occurred %s", err)
     }
 
-    if err := bar(); err != nil {
+    x, err := bar()
+    if err != nil {
         log.Fatalf("An error occurred %s", err)
     }
 }

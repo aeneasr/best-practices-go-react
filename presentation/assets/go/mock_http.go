@@ -9,9 +9,15 @@ import (
 )
 
 func TestFoo(t *testing.T) {
-	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		assert.Equal(t, "something", r.URL.Path)
-	}))
+    var handler http.HandlerFunc = func(
+        w http.ResponseWriter,
+        r *http.Request,
+    ) {
+        assert.Equal(t, "something", r.URL.Path)
+        w.Write([]byte("hello"))
+    }
+
+	ts := httptest.NewServer(handler)
 	defer ts.Close()
 
 	res, err := http.Get(ts.URL)

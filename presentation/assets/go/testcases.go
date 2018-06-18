@@ -15,12 +15,11 @@ func TestFoo(t *testing.T) {
 		{assert: true},
 		{assert: false},
 	} {
-		t.Run("case="+strconv.Itoa(k), func(t *testing.T) {
+		t.Run(fmt.Sprintf("case=%d", k), func(t *testing.T) {
 			assert.True(t, tc.assert)
 		})
 	}
 }
-
 
 
 
